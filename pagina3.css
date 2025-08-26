@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box
+}
+
+
+body,p,div{
+    background-color: azure;
+}
+p{
+    color: blueviolet;
+    background-color: aquamarine;
+}
+#descricao-css{
+    font-weight: bold;
+}
+.titulo{
+    font-size: 20pt;
+}
+[for="nome"],[type="submit"]{
+    color:rgb(129, 6, 58);
+}
+[type="submit"]:hover{
+    background-color: blue;
+    color: rgb(255, 255, 255);
+    font-size: 15pt;
+}
