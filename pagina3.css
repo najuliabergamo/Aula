@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     margin:0;
     padding:0;
@@ -26,3 +27,12 @@ p{
     color: rgb(255, 255, 255);
     font-size: 15pt;
 }
+=======
+/** seletor{ propriedade:valor;} **/
+p{
+    background-color: rgb(151, 231, 22);
+}
+#tituloformacss{
+    background-color: bisque;
+}
+>>>>>>> cd7863bc5af1240b975a23eeb183bcd1646856ed
