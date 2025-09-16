@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>   
+   <title>Exemplo especificidade de seletores</title>
+   <style>
+      /*regra 1*/ li{color:red;} 
+      /*regra 2*/ .churras{color:green;}
+      /*regra 3*/ .fruta{color:gray}
+      /*regra 4*/ li+li.churras{color: black;}
+      /*regra 5*/ .churras[draggable="true"]{color: magenta;}
+      /*regra 6*/ #lip1,#lip2,#lip3{color:blue}
+      /*regra 7*/ #lip3.fruta{color:orange}
+      /*regra 8*/ ol>li.churras#lip5{color:purple}
+   </style>
+</head>
+<body>   
+   <ol>
+   <!--item 1--> <li id="lip0">Abacaxi</li>
+   <!--aplica regra 1 (li -> red) resultado: vermelho-->
+
+   <!--item 2--> <li           class="fruta">Melão</li>
+<!--aplica regra 1 (li -> red) e regra 3(.fruta -> gray)
+da conflito entre 1 e 3, portanto a regra 3 ganha por maior especificidade -->
+
+   <!--item 3--> <li id="lip2" class="fruta">Pera</li>
+<!--aplica regra 1(li -> red), regra 3(.fruta -> gray) e regra 6(#lip2 -> blue)
+da conflito entre as tres regras, portanto o resultado é azul pq regra 6 tem maior especificidade-->
+
+   <!--item 4--> <li id="lip3" class="fruta">Uva</li>
+   <!--regra 1(li -> red), regra 3(.fruta -> gray), regra 6(#lip3 -> blue)
+   e regra 7(#lip3.fruta -> orange). Da conflito entre as regras, portanto quem ganha é a regra 7 por ser mais
+   especifica. Resultado: laranja-->
+
+   <!--item 5--> <li id="lip4" class="fruta">Maçã</li>
+<!--aplica regra 1 (li -> red) e regra 3(.fruta -> gray), da conflito entre regras. Regra 3 vence 
+por ser mais específica. Resultado: cinza-->
+
+   <!--item 6--> <li           class="churras">Carne</li>
+<!--aplica regra 1 (li -> red) e regra 2 (.churras -> green), da conflito e regra 2 vence por ser mais 
+específica, resultado: verde-->
+
+   <!--item 7--> <li           class="churras">Linguiça</li>
+<!--aplica regra 1(li -> red), regra 2 (.churras -> green) e regra 4(li+li.churras -> black)
+a regra 4 é um seletor que só funciona se o anterior for li e este for .churras
+Como o anterior tbm é "carne" portanto (li), a regra 4 vence. Resultado: -->
+
+   <!--item 8--> <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+   <!--aplica regra 1 (li), regra 2(.churras) e regra 5(.churras[draggable = true]),
+   da conflito de regras e regra 5 vence por ser mais específica. Resultado: Magenta-->
+   </ol>   
+</body>
+</html>
