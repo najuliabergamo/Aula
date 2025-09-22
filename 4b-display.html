@@ -4,30 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela 2</title>
+    <style>
+        body {
+            margin: 0; /* remove a margem padrão do body */
+        }
+
+        .container {
+            display: flex; /* ativa o flexbox */
+            width: 100%; /* ocupa toda a largura da tela */
+            height: 160px; /* altura dos quadrados */
+        }
+
+        .box {
+            flex: 1; /* cada quadrado ocupa a mesma largura */
+            text-align: center;
+            line-height: 150px; /* centraliza verticalmente o texto */
+            font-size: 30px;
+            color: white;
+        }
+
+        .box1 { background-color: blue; }
+        .box2 { background-color: green; }
+        .box3 { background-color: red; }
+        .box4 { background-color: yellow; color: black; }
+    </style>
 </head>
-<style>
-    .box{
-        display: inline-block;
-        height: 160px;
-        width: 268px;
-        flex-direction: row;
-        text-align: center;
-        line-height: 150px;
-        font-size: 30px;
-        
-    }
-
-    .box1{background-color: blue;}
-    .box2{ background-color: green;}
-    .box3{background-color: red;}
-    .box4{background-color: yellow; color:black;}
-
-</style>
 <body>
-    <div class = "box box1">1</div>
-    <div class = "box box2">2</div>
-    <div class = "box box3">3</div>
-    <div class = "box box4">4</div>
-    
+    <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+        <div class="box box4">4</div>
+    </div>
 </body>
 </html>
