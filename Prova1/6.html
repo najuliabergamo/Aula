@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela 2</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(214, 214, 214); /* remove a margem padrão do body */
+        }
+
+        .container {
+            display: flex; /* ativa o flexbox */
+            width: 100%; /* ocupa toda a largura da tela */
+            height: 160px; /* altura dos quadrados */
+        }
+
+        .box {
+            margin-top: 100px;
+            width: 250px;
+            height: 300px;
+            flex: 1; /* cada quadrado ocupa a mesma largura */
+            text-align: center;
+            line-height: 150px; /* centraliza verticalmente o texto */
+            font-size: 30px;
+            color: white;
+        }
+
+        .box1 { background-color: rgb(255, 255, 255);
+           
+                 }
+        .box2 { background-color: green;
+         }
+        .box3 { background-color: red; 
+        }
+        #listra1{
+            width: 650px;
+            height: 100px;
+            background-color: red;
+        }
+        #listra2{
+            width: 650px;
+            height: 100px;
+            background-color: white;
+        }
+        #listra3{
+            width: 650px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        #listra1f{
+            flex-direction: column;
+            width: 200px;
+            height: 300px;
+            background-color: green;
+            
+        }
+
+        #listra2f{
+            width: 200px;
+            height: 300px;
+            background-color: white;
+            flex-direction: column-reverse;
+            margin-left: 200px;
+            margin-bottom: 300px;
+
+
+        }
+
+
+
+        #bola{
+            width: 130px;
+            height: 130px;
+            background-color: red;
+            border-radius: 50%;
+            margin-left: 230px;
+            margin-top: 90px;
+        }
+
+        .box2.listra1{background-color: red;}
+        .box2.listra2{background-color: white;}
+        .box2.listra3{background-color: blue;}
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">
+            <div id="bola"></div>
+        </div>
+        <div class="box box2">
+            <div id="listra1"></div>
+            <div id="listra2"></div>
+            <div id="listra3"></div>
+        </div>
+        <div class="box box3">
+            <div id="listra1f"></div>
+            <div id="listra2f"></div>
+            <div id="listra3f"></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
