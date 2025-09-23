@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 0;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .box {
+    
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            
+        }
+
+        .box1 { background-color: blue; grid-column: 1; grid-row: 1; border-radius: 50%; height: 300px; width: 300px; bottom:0; left:0}
+        .box2 { background-color: green; grid-column: 3; grid-row: 1; border-radius: 50%; height: 300px; width: 300px; bottom:0; left:1000px;}
+        .box3 { background-color: red; grid-column: 1; grid-row: 3; border-radius: 50%; height: 300px; width: 300px; }
+        .box4 { background-color: yellow; color:black; grid-column: 3; grid-row: 3; border-radius: 50%; height: 300px; width: 300px; }
+        
+        .center {
+            background-color: magenta;
+            grid-column: 2;
+            grid-row: 2;
+            color: white;
+            font-weight:center;
+            border-radius: 50%;
+            height: 300px; width: 300px;
+        }
+    </style>
+</head>
+<body>
+     <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="center"></div>
+    
+</body>
+</html>
