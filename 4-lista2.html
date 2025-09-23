@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 4</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #eee;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      gap: 15px; /* Espaço entre os cards */
+      width: 350px; /* largura total do layout */
+      height: 300px; /* altura dos cards */
+    }
+
+    .card {
+      flex: 1; /* todos começam do mesmo tamanho pequeno */
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: white;
+      cursor: pointer;
+      transition: flex 0.5s ease-in-out; /* transição suave */
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Ao passar o mouse, o card "cresce" */
+    .card:hover {
+      flex: 4; /* expande o card */
+    }
+
+    .card-content {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 14px;
+      text-shadow: 1px 1px 2px black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <img src="calopsita.jpg" alt="Imagem 1">
+      <div class="card-content">
+        
+      </div>
+    </div>
+    <div class="card">
+      <img src="cavalo.jpg" alt="Imagem 2">
+    </div>
+    <div class="card">
+      <img src="dog.jpg" alt="Imagem 3">
+    </div>
+    <div class="card">
+      <img src="pintinho.jpg" alt="Imagem 4">
+    </div>
+  </div>
+</body>
+</html>

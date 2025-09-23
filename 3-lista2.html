@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Usuários</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #888;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      width: 350px;
+      padding: 10px;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .user:last-child {
+      border-bottom: none;
+    }
+
+    .user img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-info strong {
+      font-size: 14px;
+    }
+
+    .user-info span {
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="user">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Linda Hart">
+      <div class="user-info">
+        <strong>Linda Hart</strong>
+        <span>6765 Shady Ln Dr</span>
+      </div>
+    </div>
+
+    <div class="user">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Roger Medina">
+      <div class="user-info">
+        <strong>Roger Medina</strong>
+        <span>2420 Paddock Way</span>
+      </div>
+    </div>
+
+    <div class="user">
+      <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Dean Sullivan">
+      <div class="user-info">
+        <strong>Dean Sullivan</strong>
+        <span>6727 Airplane Ave</span>
+      </div>
+    </div>
+
+    <div class="user">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Elizabeth Austin">
+      <div class="user-info">
+        <strong>Elizabeth Austin</strong>
+        <span>6085 Blossom Hill Rd</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
