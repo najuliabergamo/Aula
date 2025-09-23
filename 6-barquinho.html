@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<title>Barquinho no Mar</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to top, #87ceeb, #e0f7fa); /* Céu */
+  }
+
+  /* 🌊 Mar */
+  .mar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 35vh;
+    background: #1e90ff;
+    animation: onda 6s ease-in-out infinite alternate;
+    z-index: 1;
+  }
+
+  @keyframes onda {
+    from { transform: translateY(0px); }
+    to   { transform: translateY(-10px); }
+  }
+
+  /* ☁️ Nuvem */
+  .nuvem {
+    position: absolute;
+    top: 10vh;
+    left: -200px;
+    width: 120px;
+    height: 60px;
+    background: #fff;
+    border-radius: 60px;
+    box-shadow: 30px 10px 0 0 #fff,
+                60px 0px 0 0 #fff,
+                90px 15px 0 0 #fff;
+    animation: moverNuvem 50s linear infinite;
+    z-index: 0;
+  }
+
+  @keyframes moverNuvem {
+    from { left: -200px; }
+    to   { left: 100%; }
+  }
+
+  /* 🚤 Barco (container que navega) */
+  .barco-wrap {
+    position: absolute;
+    bottom: 30vh;
+    left: -150px;
+    width: 140px;
+    height: 140px;
+    animation: navegar 20s linear infinite;
+    z-index: 2;
+  }
+
+  @keyframes navegar {
+    from { left: -150px; }
+    to   { left: 100%; }
+  }
+
+  /* Barco em si balança */
+  .barco {
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 80%;
+    animation: balanco 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes balanco {
+    from { transform: rotate(-4deg); }
+    to   { transform: rotate(4deg); }
+  }
+
+  .barco svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+  <div class="mar"></div>
+  <div class="nuvem"></div>
+
+  <!-- 🚤 Barquinho bonitinho em SVG -->
+  <div class="barco-wrap">
+    <div class="barco">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Casco -->
+        <path d="M20 80 Q60 110 100 80 L85 80 Q60 100 35 80 Z"
+              fill="#8B4513" stroke="#3e2723" stroke-width="2"/>
+        <!-- Mastro -->
+        <rect x="58" y="25" width="4" height="55" fill="#333"/>
+        <!-- Vela esquerda -->
+        <path d="M60 25 L60 75 L30 75 Z"
+              fill="#ffffff" stroke="#333" stroke-width="1.5"/>
+        <!-- Vela direita -->
+        <path d="M60 25 L90 55 L60 55 Z"
+              fill="#4fc3f7" stroke="#333" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
