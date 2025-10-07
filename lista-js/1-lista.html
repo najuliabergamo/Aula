@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é Java Script?</title>
+    <script>
+        alert("Bem-vindo à explicação sobre JavaScript!");
+
+        console.log("Página carregada com sucesso. Explorando JavaScript!");
+
+        window.onload = function() {
+      const agora = new Date();
+      const horaAtual = agora.toLocaleTimeString();
+      document.getElementById("hora").innerHTML = "Hora atual: " + horaAtual;
+        };
+
+
+    </script>
+</head>
+<body>
+
+  
+    <h1 id="titulo">O que é Java Script?</h1>
+    <p id="motivacao">
+         O JavaScript foi criado com a motivação de tornar as páginas web interativas e dinâmicas.
+          Ele surgiu em 1995 por Brendan Eich em apenas 10 dias, inicialmente para o navegador Netscape.
+    </p>
+
+    <p id="diferenca">
+        JavaScript pode ser executado tanto no **navegador** (lado do cliente),
+        onde manipula elementos da página, quanto no **servidor**, usando ambientes como Node.js para criar APIs e sistemas completos.
+    </p>
+
+    <p id="conceito">
+        No navegador, o JavaScript roda dentro de um ambiente isolado chamado **sandbox**, que limita o acesso do script a partes sensíveis do sistema, por segurança.
+    </p>
+
+    <p id="objetos">
+         Existem objetos globais importantes, como:
+    <ul>
+      <li><strong>document</strong>: permite acessar e manipular o conteúdo da página HTML.</li>
+      <li><strong>console</strong>: usado para registrar mensagens de depuração no console do navegador.</li>
+      <li><strong>alert</strong>: exibe caixas de mensagem para o usuário.</li>
+    </ul>
+    </p>
+    
+      <p id="hora">Hora atual: </p>
+</body>
+</html>

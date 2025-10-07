@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividade 2</title>
+    <script>
+        function mostrarTiposEOperacoes() {
+      // Declaração de variáveis de diferentes tipos
+      let texto = "Olá, mundo!"; // string
+      let numero = 42;           // number
+      let booleano = true;       // boolean
+      let indefinido;            // undefined
+      let nulo = null;           // null
+      let objeto = { nome: "Ana", idade: 18 }; // object
+      let array = [1, 2, 3];     // array (tipo object)
+
+      // Exibindo tipos com typeof
+      document.getElementById("pstring").innerText = "texto: " + texto + " (tipo: " + typeof texto + ")";
+      document.getElementById("pnumero").innerText = "numero: " + numero + " (tipo: " + typeof numero + ")";
+      document.getElementById("pbooleano").innerText = "booleano: " + booleano + " (tipo: " + typeof booleano + ")";
+      document.getElementById("pundefined").innerText = "indefinido: " + indefinido + " (tipo: " + typeof indefinido + ")";
+      document.getElementById("pnull").innerText = "nulo: " + nulo + " (tipo: " + typeof nulo + " - curiosidade: typeof null é 'object' por um bug histórico)";
+      document.getElementById("pobjeto").innerText = "objeto: " + JSON.stringify(objeto) + " (tipo: " + typeof objeto + ")";
+      document.getElementById("parray").innerText = "array: " + array + " (tipo: " + typeof array + " - arrays também são 'object' em JS)";
+
+      // Operações entre tipos diferentes
+      let op1 = texto + numero;           // string + number → concatenação
+      let op2 = booleano * numero;        // true * 42 → 1 * 42 = 42
+      let op3 = texto * 2;                // "Olá" * 2 → NaN
+      let op4 = null + 5;                 // null é convertido para 0 → 0 + 5 = 5
+      let op5 = undefined + 5;            // undefined → NaN
+      let op6 = array + numero;           // array → string "1,2,3", então concatena
+
+      // Mostrar no console
+      console.log("texto + numero:", op1);
+      console.log("booleano * numero:", op2);
+      console.log("texto * 2:", op3);
+      console.log("null + 5:", op4);
+      console.log("undefined + 5:", op5);
+      console.log("array + numero:", op6);
+
+      // Exibir explicações na página
+      document.getElementById("op1").innerText = `"texto" + numero = ${op1} → concatena pois um dos lados é string.`;
+      document.getElementById("op2").innerText = `booleano * numero = ${op2} → true é 1, então 1 * 42 = 42.`;
+      document.getElementById("op3").innerText = `"texto" * 2 = ${op3} → não faz sentido multiplicar texto, resultado é NaN.`;
+      document.getElementById("op4").innerText = `null + 5 = ${op4} → null vira 0, então 0 + 5 = 5.`;
+      document.getElementById("op5").innerText = `undefined + 5 = ${op5} → undefined não vira número válido, resultado é NaN.`;
+      document.getElementById("op6").innerText = `array + numero = ${op6} → array vira string "1,2,3", concatena com número.`;
+    }
+    </script>
+</head>
+<body>
+    <h1>Tipos de Variáveis e Operadores</h1>
+  <button onclick="mostrarTiposEOperacoes()">Executar Script</button>
+
+  <h2>Tipos de Variáveis</h2>
+  <p id="pstring"></p>
+  <p id="pnumero"></p>
+  <p id="pbooleano"></p>
+  <p id="pundefined"></p>
+  <p id="pnull"></p>
+  <p id="pobjeto"></p>
+  <p id="parray"></p>
+
+  <h2>Operações entre Tipos Diferentes</h2>
+  <p id="op1"></p>
+  <p id="op2"></p>
+  <p id="op3"></p>
+  <p id="op4"></p>
+  <p id="op5"></p>
+  <p id="op6"></p>
+    
+</body>
+</html>

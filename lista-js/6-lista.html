@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números primos</title>
+
+    <style>
+
+        body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    input {
+      margin-right: 10px;
+      width: 80px;
+    }
+
+    button {
+      padding: 5px 15px;
+    }
+
+    #resultadoPrimos {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    </style>
+
+    <script>
+        function ehPrimo(n) {
+      if (n < 2) return false;
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    function verificarPrimos() {
+      let inicio = parseInt(document.getElementById("inicio").value);
+      let fim = parseInt(document.getElementById("fim").value);
+
+      if (isNaN(inicio) || isNaN(fim)) {
+        alert("Por favor, preencha ambos os campos com números válidos.");
+        return;
+      }
+
+      // Normaliza para garantir que inicio <= fim
+      if (inicio > fim) {
+        [inicio, fim] = [fim, inicio]; // troca os valores
+      }
+
+      let primos = [];
+
+      for (let i = inicio; i <= fim; i++) {
+        if (ehPrimo(i)) {
+          primos.push(i);
+        }
+      }
+
+      const resultado = document.getElementById("resultadoPrimos");
+      if (primos.length > 0) {
+        resultado.innerText = `Números primos entre ${inicio} e ${fim}: ${primos.join(", ")}`;
+      } else {
+        resultado.innerText = `Não foram encontrados números primos entre ${inicio} e ${fim}.`;
+      }
+    }
+
+    </script>
+</head>
+<body>
+
+    <h1>Verificador de Números Primos</h1>
+
+  <label for="inicio">Início:</label>
+  <input type="number" id="inicio">
+
+  <label for="fim">Fim:</label>
+  <input type="number" id="fim">
+
+  <button onclick="verificarPrimos()">Verificar</button>
+
+  <div id="resultadoPrimos"></div>
+    
+</body>
+</html>

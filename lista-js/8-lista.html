@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudança de cor</title>
+    <style>
+
+         body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      transition: background-color 0.3s ease;
+    }
+
+    #btnMudarCor {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 100px;
+      
+    }
+
+    #corAtual {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #333;
+    }
+
+    #copiado {
+      font-size: 14px;
+      color: green;
+      margin-top: 5px;
+      display: none;
+    }
+
+    </style>
+    <script>
+
+        function gerarCorHex() {
+      const letras = '0123456789ABCDEF';
+      let cor = '#';
+      for (let i = 0; i < 6; i++) {
+        cor += letras[Math.floor(Math.random() * 16)];
+      }
+      return cor;
+    }
+
+    function mudarCorFundo() {
+      const novaCor = gerarCorHex();
+      document.body.style.backgroundColor = novaCor;
+      const corTexto = document.getElementById("corAtual");
+      corTexto.innerText = novaCor;
+    }
+
+    function copiarParaAreaTransferencia() {
+      const cor = document.getElementById("corAtual").innerText;
+      navigator.clipboard.writeText(cor).then(() => {
+        const copiado = document.getElementById("copiado");
+        copiado.style.display = "inline";
+        setTimeout(() => {
+          copiado.style.display = "none";
+        }, 1500);
+      });
+    }
+
+    </script>
+</head>
+<body>
+
+  <button id="btnMudarCor" onclick="mudarCorFundo()">Alterar cor de fundo</button>
+
+  <p id="corAtual" onclick="copiarParaAreaTransferencia()">#FFFFFF</p>
+  <span id="copiado">Copiado!</span>
+    
+</body>
+</html>
