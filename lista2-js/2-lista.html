@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assíncrono vs. Síncrono em JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 40px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    h2 {
+      color: #007BFF;
+    }
+    code {
+      background-color: #eee;
+      padding: 3px 6px;
+      border-radius: 5px;
+      font-size: 14px;
+      color: #222;
+    }
+    pre {
+      background-color: #222;
+      color: #eee;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Assíncrono vs. Síncrono em JavaScript e o Modelo de Concorrência</h1>
+
+  <h2>- 1. Conceitos Gerais</h2>
+  <p>
+    O JavaScript é uma linguagem de <strong>thread única</strong>, ou seja, executa uma tarefa por vez.  
+    O comportamento <strong>síncrono</strong> significa que as instruções são executadas em sequência —  
+    uma linha só começa quando a anterior termina.
+  </p>
+  <p>
+    Já o <strong>comportamento assíncrono</strong> permite que o JavaScript inicie uma operação (como leitura de arquivo, requisição HTTP ou temporizador)
+    e continue executando outras tarefas enquanto espera a resposta.  
+    Assim, o JavaScript **não trava** a execução do restante do código.
+  </p>
+
+  <h2>- 2. Exemplo prático</h2>
+
+  <pre><code>// Exemplo Síncrono
+console.log("Início");
+for (let i = 0; i < 3; i++) {
+  console.log("Contando:", i);
+}
+console.log("Fim");
+// Executa tudo na ordem linha por linha
+</code></pre>
+
+  <pre><code>// Exemplo Assíncrono
+console.log("Início");
+
+setTimeout(() => {
+  console.log("Tarefa assíncrona concluída!");
+}, 2000);
+
+console.log("Fim");
+// O setTimeout é colocado em espera e o código continua executando.
+</code></pre>
+
+  <h2>- 3. Callbacks, Promises e Async/Await</h2>
+
+  <h3> Callbacks</h3>
+  <p>
+    Um <strong>callback</strong> é uma função passada como argumento para ser executada depois de uma operação assíncrona.  
+    Embora útil, pode gerar o famoso problema de <em>"callback hell"</em> (código aninhado e difícil de ler).
+  </p>
+  <pre><code>
+function buscarDados(callback) {
+  setTimeout(() => {
+    callback(" Dados recebidos!");
+  }, 2000);
+}
+
+buscarDados((resposta) => {
+  console.log(resposta);
+});
+</code></pre>
+
+  <h3> Promises</h3>
+  <p>
+    Uma <strong>Promise</strong> representa uma operação que pode estar <em>pendente</em>, <em>resolvida</em> ou <em>rejeitada</em>.  
+    É uma forma mais clara e moderna de lidar com assincronismo.
+  </p>
+  <pre><code>
+function buscarDadosPromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(" Dados recebidos com Promise!"), 2000);
+  });
+}
+
+buscarDadosPromise().then(resposta => console.log(resposta));
+</code></pre>
+
+  <h3> Async/Await</h3>
+  <p>
+    A sintaxe <code>async/await</code> simplifica o uso de Promises, parecendo um código síncrono, mas mantendo o comportamento assíncrono.
+  </p>
+  <pre><code>
+async function buscarDadosAsync() {
+  console.log("Buscando dados...");
+  const resposta = await buscarDadosPromise();
+  console.log(resposta);
+}
+buscarDadosAsync();
+</code></pre>
+
+  <h2>- 4. Como o JavaScript lida com operações de I/O</h2>
+  <p>
+    Operações de entrada e saída (I/O), como leitura de arquivos ou requisições HTTP, não bloqueiam o fluxo principal.  
+    O JavaScript usa a <strong>API do navegador</strong> (ou do Node.js) para lidar com essas tarefas em paralelo e chama o callback quando elas terminam.
+  </p>
+
+  <h2>- 5. Event Loop e Call Stack</h2>
+  <p>
+    O <strong>Event Loop</strong> é o mecanismo que faz o JavaScript parecer multitarefa.  
+    Ele monitora a <strong>Call Stack</strong> (pilha de execução) e a <strong>Task Queue</strong> (fila de tarefas).
+  </p>
+
+  <ul>
+    <li> <strong>Call Stack</strong>: onde as funções são empilhadas e executadas uma de cada vez.</li>
+    <li> <strong>Task Queue</strong>: onde ficam as funções de retorno (callbacks) aguardando sua vez de serem executadas.</li>
+  </ul>
+
+  <p>
+    Quando a <strong>Call Stack</strong> fica vazia, o <strong>Event Loop</strong> pega a próxima tarefa da fila e executa — garantindo fluidez no código assíncrono.
+  </p>
+
+  <h2>- 6. Resumo</h2>
+  <ul>
+    <li><b>Síncrono:</b> executa linha por linha, bloqueando o restante até terminar.</li>
+    <li><b>Assíncrono:</b> delega tarefas demoradas e continua a execução.</li>
+    <li><b>Callbacks:</b> primeira forma de lidar com assincronismo.</li>
+    <li><b>Promises:</b> tornam o código mais organizado e previsível.</li>
+    <li><b>Async/Await:</b> deixa o código mais legível e simples de escrever.</li>
+    <li><b>Event Loop:</b> controla quando as tarefas assíncronas são executadas.</li>
+  </ul>
+</body>
+</html>
