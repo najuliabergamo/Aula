@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Salvar nome com localStorage - Teste</title>
+  <style>
+    body { 
+        font-family: Arial, sans-serif;
+         padding: 20px;
+          background:#f7fbfc; 
+        }
+    .card { 
+        background:white;
+         padding:16px;
+          border-radius:8px; 
+          box-shadow:0 6px 18px rgba(0,0,0,0.06); max-width:420px; 
+        }
+    input 
+    { width:100%;
+         padding:10px; 
+         font-size:16px; 
+         margin-bottom:8px; 
+         border:1px solid #ddd;
+         border-radius:6px; 
+         width: 350px;
+        }
+    button { 
+        padding:10px 14px;
+         font-size:16px;
+          border-radius:6px;
+           border:none; 
+           cursor:pointer; 
+           background:#2b9af3; 
+           color:white;
+         }
+    button.secondary {
+         background:#f0f0f0;
+          color:#333;
+           margin-left:8px; 
+        }
+    #status { 
+        margin-top:10px; 
+        font-size:14px;
+         color:#666;
+         }
+    #greeting { 
+        margin-top:12px;
+         font-weight:700; 
+        }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3>Salvar nome com localStorage</h3>
+
+ 
+    <input type="text" id="nameInput" placeholder="Digite seu nome">
+    <div style="display:flex; gap:8px; margin-bottom:8px;">
+      <button id="saveButton">Salvar</button>
+      <button id="clearButton" class="secondary">Limpar salvo</button>
+    </div>
+    <p id="greeting"></p>
+    <div id="status">Aguardando ação...</div>
+  </div>
+
+  <script>
+  (function () {
+    const statusEl = document.getElementById('status');
+    const input = document.getElementById('nameInput');
+    const saveBtn = document.getElementById('saveButton');
+    const clearBtn = document.getElementById('clearButton');
+    const greeting = document.getElementById('greeting');
+    const STORAGE_KEY = 'nome';
+
+    function logStatus(msg) {
+      statusEl.textContent = msg;
+      console.log(msg);
+    }
+
+    function supportsLocalStorage() {
+      try {
+        const testKey = '__ls_test__';
+        localStorage.setItem(testKey, '1');
+        localStorage.removeItem(testKey);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    // inicialização segura
+    window.addEventListener('DOMContentLoaded', function () {
+      try {
+        if (!supportsLocalStorage()) {
+          logStatus('localStorage não está disponível neste navegador. Use outro navegador ou verifique configurações.');
+          return;
+        }
+
+        // Recupera nome salvo (se houver) e atualiza UI
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          input.value = saved;
+          greeting.textContent = `Olá, ${saved}!`;
+          logStatus('Nome recuperado do localStorage.');
+        } else {
+          greeting.textContent = '';
+          logStatus('Nenhum nome salvo encontrado.');
+        }
+
+        // Salvar quando clicar
+        saveBtn.addEventListener('click', function () {
+          const nome = input.value.trim();
+          if (!nome) {
+            alert('Digite um nome antes de salvar.');
+            return;
+          }
+          localStorage.setItem(STORAGE_KEY, nome);
+          greeting.textContent = `Olá, ${nome}!`;
+          logStatus('Nome salvo com sucesso.');
+        });
+
+        // Limpar o nome salvo
+        clearBtn.addEventListener('click', function () {
+          localStorage.removeItem(STORAGE_KEY);
+          greeting.textContent = '';
+          input.value = '';
+          logStatus('Nome salvo removido.');
+        });
+
+        // Suporte ao Enter no input para salvar
+        input.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter') {
+            ev.preventDefault();
+            saveBtn.click();
+          }
+        });
+
+      } catch (err) {
+        console.error('Erro no script:', err);
+        logStatus('Erro no script — veja o console (F12) para detalhes.');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

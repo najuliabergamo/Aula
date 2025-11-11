@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Captura de Teclas do Teclado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f5f5f5;
+      margin-top: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #saida {
+      margin-top: 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #222;
+      background: white;
+      border: 1px solid #ccc;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Captura de Teclas do Teclado</h1>
+  <div id="saida"></div>
+
+  <script>
+    const saida = document.getElementById('saida');
+    let texto = '';
+
+    document.addEventListener('keydown', function(event) {
+      console.log(`Tecla: ${event.key} | Código: ${event.code}`);
+
+      if (event.key === 'Backspace') {
+        // Remove o último caractere
+        texto = texto.slice(0, -1);
+      } else if (event.key.length === 1) {
+        // Adiciona apenas caracteres visíveis
+        texto += event.key;
+      }
+
+      // Atualiza o conteúdo na tela
+      saida.textContent = texto;
+    });
+  </script>
+</body>
+</html>

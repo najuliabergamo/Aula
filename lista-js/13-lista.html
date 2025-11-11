@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desenho com Canvas</title>
+</head>
+<body>
+  <h1>Desenho com Canvas</h1>
+  <canvas id="meuCanvas" width="400" height="300" style="border:1px solid #000;"></canvas>
+
+  <script>
+    // Espera a página carregar antes de desenhar
+    window.addEventListener("DOMContentLoaded", function() {
+      // a) Obtém o contexto 2D
+      const canvas = document.getElementById("meuCanvas");
+      const ctx = canvas.getContext("2d");
+
+      // b) Desenha um retângulo azul (x, y, largura, altura)
+      ctx.fillStyle = "blue";
+      ctx.fillRect(50, 50, 100, 50);
+
+      // c) Desenha um círculo vermelho (x, y, raio)
+      ctx.beginPath();
+      ctx.arc(200, 150, 30, 0, Math.PI * 2); // círculo completo
+      ctx.fillStyle = "red";
+      ctx.fill();
+      ctx.closePath();
+
+      // d) Escreve o texto "Canvas!" em preto
+      ctx.fillStyle = "black";
+      ctx.font = "20px Arial";
+      ctx.fillText("Canvas!", 120, 250);
+    });
+  </script>
+</body>
+</html>

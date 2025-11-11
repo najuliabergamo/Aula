@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Simples</title>
+
+  <style>
+    body {
+      background-color: #9fd3e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculadora {
+      background-color: #dfe6e9;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 240px;
+    }
+
+    .display {
+      background-color: #111;
+      color: white;
+      font-size: 2em;
+      text-align: right;
+      padding: 15px;
+    }
+
+    .botoes {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    button {
+      border: 1px solid #ccc;
+      font-size: 1.2em;
+      height: 60px;
+      cursor: pointer;
+      background-color: white;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .operador {
+      background-color: #f0f0f0;
+    }
+
+    .igual {
+      background-color: #ff9f68;
+      color: white;
+      grid-row: span 2;
+      height: ;
+    }
+
+    .ac {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="calculadora">
+    <div class="display" id="display">0</div>
+    <div class="botoes">
+      <button class="operador">+</button>
+      <button class="operador">-</button>
+      <button class="operador">*</button>
+      <button class="operador">/</button>
+
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button class="igual">=</button>
+
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      
+
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button class="ac">AC</button>
+      
+      <div></div>
+
+      <button>0</button>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const botoes = document.querySelectorAll('button');
+    let expressao = '';
+
+    botoes.forEach(botao => {
+      botao.addEventListener('click', () => {
+        const valor = botao.textContent;
+
+        if (valor === 'AC') {
+          expressao = '';
+          display.textContent = '0';
+        } else if (valor === '=') {
+          try {
+            expressao = eval(expressao).toString();
+            display.textContent = expressao;
+          } catch {
+            display.textContent = 'Erro';
+            expressao = '';
+          }
+        } else if (valor.trim() !== '') {
+          expressao += valor;
+          display.textContent = expressao;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
