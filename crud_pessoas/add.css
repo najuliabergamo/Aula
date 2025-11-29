@@ -1,0 +1,72 @@
+/* Geral */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('ifsc.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Centralização vertical e horizontal */
+    display: flex;
+    flex-direction: column;   /* coluna para título + form */
+    justify-content: center;  /* centraliza verticalmente */
+    align-items: center;      /* centraliza horizontalmente */
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Formulário */
+form {
+    width: 350px;           /* largura do formulário */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+/* Inputs */
+form input[type=text],
+form input[type=email],
+form input[type=date] {
+    width: 100%;            
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;     
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Botão */
+form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Mensagem */
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}

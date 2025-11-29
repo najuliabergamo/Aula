@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;  /* centraliza verticalmente */
+    align-items: center;     /* centraliza horizontalmente */
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url('ifsc.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Título acima do quadro */
+h2 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Quadro branco central */
+.detalhes {
+    background-color: #fff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Cada informação do usuário */
+.detalhes p {
+    font-size: 16px;
+    color: #333;
+    padding: 10px 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.detalhes p strong {
+    color: #1d9b23;
+}
+
+.botao-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px; /* espaço entre os botões */
+    justify-content: center;
+}
+
+.botao-container button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Voltar e Editar verdes */
+.botao-container .voltar,
+.botao-container .editar {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.botao-container .voltar:hover,
+.botao-container .editar:hover {
+    background-color: #1e7e34;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Botão Excluir vermelho */
+.botao-container .excluir {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.botao-container .excluir:hover {
+    background-color: #b02a37;
+    transform: translateY(-2px) scale(1.02);
+}
+
+
+
+/* Responsividade */
+@media (max-width: 450px) {
+    .detalhes, .botao-container {
+        width: 90%;
+        padding: 25px 20px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    .detalhes p {
+        font-size: 15px;
+        padding: 8px 12px;
+    }
+    .botao-container button {
+        font-size: 16px;
+        padding: 14px;
+    }
+}

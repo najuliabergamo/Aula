@@ -1,0 +1,132 @@
+/* Reset básico e fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('ifsc.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    flex-direction: column;
+}
+
+/* Título acima do quadro */
+h2 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* Quadro branco central */
+.detalhes {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Labels e inputs */
+.detalhes label {
+    font-weight: bold;
+    color: #333;
+    align-self: flex-start;
+    margin-bottom: 5px;
+}
+
+.detalhes input[type="text"],
+.detalhes input[type="email"],
+.detalhes input[type="date"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.detalhes input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40,167,69,0.3);
+    outline: none;
+}
+
+/* Container dos botões - lado a lado */
+.botao-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Botões iguais */
+.botao-container button,
+.botao-container .cancelar {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+}
+
+/* Botão Salvar */
+.botao-container button[name="salvar"] {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.botao-container button[name="salvar"]:hover {
+    background-color: #1e7e34;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Botão Cancelar */
+.botao-container .cancelar {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.botao-container .cancelar:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Responsividade */
+@media (max-width: 420px) {
+    .detalhes {
+        width: 90%;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    .detalhes input {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+    .botao-container button, .botao-container .cancelar {
+        font-size: 15px;
+        padding: 10px 0;
+    }
+}
