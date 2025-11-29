@@ -15,7 +15,7 @@ $sql_insert = "INSERT INTO usuarios (nome, telefone, email, data_nascimento) VAL
 ('CLARA BIANCA KISTNER', '47 98888-7777', ' clara.k15@aluno.ifsc.edu.br', '2007-05-14'),
 ('DANIEL STAMM PESSOA DE OLIVEIRA', '47 95555-3333', 'engenheirodouglaspessoa@gmail.com	', '2003-11-20'),
 ('DIMITRI SCHMIDT', '47 97777-8888', 'camilaschmidt2006@gmail.com', '2005-02-01'),
-('BEMANUEL DE OLIVEIRA FARIAS', '47 99999-0000', 'emanuel.oliveira.farias@gmail.com', '2001-07-10'),
+('EMANUEL DE OLIVEIRA FARIAS', '47 99999-0000', 'emanuel.oliveira.farias@gmail.com', '2001-07-10'),
 ('EMILY SIMAS DE SOUZA', '47 97777-6666', 'julisimas.souza@gmail.com', '2004-12-30'),
 ('ENZO KIYOSHI ANAMI REIGOZA', '47 98888-7777', 'tyekoanami@gmail.com', '2007-05-14'),
 ('GABRIEL MENDES MOTTA', '47 95555-3333', 'sgtmotta01@yahoo.com.br', '2003-11-20'),
